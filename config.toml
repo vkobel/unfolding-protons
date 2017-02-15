@@ -1,0 +1,8 @@
+languageCode = "en-us"
+baseurl = "http://example.org/"
+title = "Unfolding protons"
+
+[params]
+author = "Vincent Ko"
+selfintro = "Unfolding protons"
+avatar    = "img/profile.png"
