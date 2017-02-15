@@ -1,6 +1,7 @@
 languageCode = "en-us"
 baseurl = "http://example.org/"
 title = "Unfolding protons"
+theme = "cocoa"
 
 [params]
 author = "Vincent Ko"
