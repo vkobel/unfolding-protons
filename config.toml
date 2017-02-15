@@ -1,5 +1,5 @@
 languageCode = "en-us"
-baseurl = "http://example.org/"
+baseurl = "https://unfolding-protons.netlify.com/"
 title = "Unfolding protons"
 theme = "cocoa"
 
