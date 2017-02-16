@@ -31,6 +31,11 @@ openssl ecparam -name secp256k1 -genkey -noout | openssl ec -text -noout
 
 5. that the keccak-256sum -x of it (last 20 bytes)
 
+
+
+Use pyopenssl to gen the priv and pub (done with https://pypi.python.org/pypi/ecdsa successfully)
+Use pysha3 for the keccak256 hash (https://pypi.python.org/pypi/pysha3)
+
 openssl ecparam -name secp256k1 -genkey -noout |
 openssl ec -text -noout 2> /dev/null | grep priv:$ -A 3 | tail -n +2 | tr -d '\n :'
 
