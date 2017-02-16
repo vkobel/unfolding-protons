@@ -31,7 +31,24 @@ openssl ecparam -name secp256k1 -genkey -noout | openssl ec -text -noout
 
 5. that the keccak-256sum -x of it (last 20 bytes)
 
+## Python script
+```python
+from ecdsa import SigningKey, SECP256k1
+import sha3
 
+keccak = sha3.keccak_256()
+
+priv = SigningKey.generate(curve=SECP256k1)
+pub = priv.get_verifying_key().to_string()
+
+keccak.update(pub)
+address = keccak.hexdigest()[24:]
+
+print("Private key: ", priv.to_string().hex())
+print("Public key:  ", pub.hex())
+print("Address:      0x" + address)
+
+```
 
 Use pyopenssl to gen the priv and pub (done with https://pypi.python.org/pypi/ecdsa successfully)
 Use pysha3 for the keccak256 hash (https://pypi.python.org/pypi/pysha3)
