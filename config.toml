@@ -2,8 +2,9 @@ languageCode = "en-us"
 baseurl = "https://kobl.one/"
 title = "Unfolding protons"
 theme = "cocoa"
+#pygmentsCodeFences = true
 
 [params]
-author = "Vincent Ko"
+author = "Vincent Kō"
 selfintro = "Unfolding protons"
 avatar    = "img/profile.png"
