@@ -76,7 +76,7 @@ The pub file now contains the hexadecimal value of the public key without the 0x
 
 An Ethereum address is made of 20 bytes (40 hex characters long), it is commonly represented by adding the 0x prefix. In order to derive it, one should take the keccak-256 hash of the hexadecimal form of a public key, then keep only the last 20 bytes (aka get rid of the first 12 bytes).
 
-Simply pass the file containing the public key in hexadecimal format to the keccak-256sum command. **Do not forget to use the '-x' option** in order to interpret it as hexadecimal and not a simple string.i
+Simply pass the file containing the public key in hexadecimal format to the keccak-256sum command. **Do not forget to use the '-x' option** in order to interpret it as hexadecimal and not a simple string.
 
 In the below snippet, the '-l' option is to output as lowercase. Then I use *tr* to delete the trailing ' -' from the stdout of the keccak command. Finally, I take only the last 40 characters using the *tail* command. Yes, I specify 41 in order to get 40 characters, probably because of a line return.
 
