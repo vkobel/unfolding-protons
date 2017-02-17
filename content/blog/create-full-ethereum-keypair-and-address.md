@@ -8,10 +8,10 @@ draft = false
 # Generating a usable Ethereum wallet and its corresponding keys
 
 ### Contents
-- [Generating the EC private key](#generating-the-ec-private-key)
-- [Derive the Ethereum address from the public key](#derive-the-ethereum-address-from-the-public-key)
-- [Importing the private key to geth](#importing-the-private-key-to-geth)
-- [Complete example](#complete-example)
+- [Generating the EC private key](blog/create-full-ethereum-keypair-and-address#generating-the-ec-private-key)
+- [Derive the Ethereum address from the public key](blog/create-full-ethereum-keypair-and-address#derive-the-ethereum-address-from-the-public-key)
+- [Importing the private key to geth](blog/create-full-ethereum-keypair-and-address#importing-the-private-key-to-geth)
+- [Complete example](blog/create-full-ethereum-keypair-and-address#complete-example)
 
 This article is a guide on how to generate an ECDSA private key and derive its Ethereum address. Using OpenSSL and keccak-256sum from a bash terminal.
 
@@ -56,11 +56,11 @@ ASN1 OID: secp256k1
 
 This command decodes the ASN.1 structure and derives the public key from the private one. Sometimes, OpenSSL is adding a null byte (0x00) in front of the private part, I don't know why it does that but you have to trim any leading zero bytes in order to use it with Ethereum. 
 
-The private key **must be 32 bytes and not begin with 0x00** and the public one **must be uncompressed and 64 bytes long** or 65 with the constant 0x04 prefix. More on that on the next section. 
+The private key **must be 32 bytes and not begin with 0x00** and the public one **must be uncompressed and 64 bytes long** or 65 with the constant 0x04 prefix. More on that in the next section. 
 
 ## Derive the Ethereum address from the public key
 
-The public key is what we need in order to derive its Ethereum address. Every EC public key begins with the 0x04 prefix before giving the location of the two point on the curve. You should remove this leading 0x04 byte in order to hash it correctly. I recommend the excellent [Cloudflare article on elliptic curves](https://blog.cloudflare.com/a-relatively-easy-to-understand-primer-on-elliptic-curve-cryptography/).
+The public key is what we need in order to derive its Ethereum address. Every EC public key begins with the 0x04 prefix before giving the location of the two point on the curve. You should remove this leading 0x04 byte in order to hash it correctly. I recommend the excellent [Cloudflare article on elliptic curves](https://blog.cloudflare.com/a-relatively-easy-to-understand-primer-on-elliptic-curve-cryptography/) if you want more details.
 
 Use any method you like to get it in the form of an hexadecimal string (without line return nor semicolon). Here is an example of extraction using *grep*, *tail*, *tr* and *sed*. I'm sure there's an easier way to do but I'm not a bash guru. You can find the scripts (python as well) on [my github repository](https://github.com/vkobel/ethereum-generate-wallet).
 
@@ -78,7 +78,7 @@ An Ethereum address is made of 20 bytes (40 hex characters long), it is commonly
 
 Simply pass the file containing the public key in hexadecimal format to the keccak-256sum command. **Do not forget to use the '-x' option** in order to interpret it as hexadecimal and not a simple string.i
 
-In the below snippet, the '-l' option is to output as lowercase. Then I use *tr* to delete the trailing ' -' from the stdout of the keccak command. Finally, I take only the last 40 characters using the **tail** command. Yes, I specify 41 in order to get 40 characters, probably because of a line return.
+In the below snippet, the '-l' option is to output as lowercase. Then I use *tr* to delete the trailing ' -' from the stdout of the keccak command. Finally, I take only the last 40 characters using the *tail* command. Yes, I specify 41 in order to get 40 characters, probably because of a line return.
 
 ```bash
 # Generate the hash and take the address part
@@ -107,7 +107,7 @@ Passphrase:
 Repeat passphrase: 
 Address: {0bed7abd61247635c1973eb38474a2516ed1d884}
 ```
-**YAY!**, the address retured by geth is the same we computed. Note that geth will ask you a passphrase to encrypt your private key.
+**YAY!** the address retured by geth is the same we computed. Note that geth will ask you a passphrase to encrypt your private key.
 
 You're now ready to use the new account with geth. Of course, it would be easier to take advantage of the `geth account new` feature in order to quickly setup an Ethereum account. But using this way gives you the power of knowing your public and unencrypted private keys. In addition, this would be useful to generate a secure Ethereum account completely off chain. 
 
