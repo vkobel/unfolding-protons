@@ -13,16 +13,16 @@ draft = false
 - [Importing the private key to geth](blog/create-full-ethereum-keypair-and-address#importing-the-private-key-to-geth)
 - [Complete example](blog/create-full-ethereum-keypair-and-address#complete-example)
 
-This article is a guide on how to generate an ECDSA private key and derive its Ethereum address. Using OpenSSL and keccak-256sum from a bash terminal.
+This article is a guide on how to generate an ECDSA private key and derive its Ethereum address. Using OpenSSL and keccak-256sum from a  terminal.
 
 You can find a working implementation of keccak-256sum [here](https://github.com/maandree/sha3sum). Cool thing, it exists as a package in the [Arch User Repository as well](https://aur.archlinux.org/packages/sha3sum/).
 
-**Warning SHA3 != keccak**. Ethereum is using the keccak-256 algorithm and not the standard sha3. More info on [Stackoverflow](http://ethereum.stackexchange.com/questions/550/which-cryptographic-hash-function-does-ethereum-use).
+**Warning SHA3 != keccak**. Ethereum is using the keccak-256 algorithm and not the standard sha3. More info at [Stackoverflow](http://ethereum.stackexchange.com/questions/550/which-cryptographic-hash-function-does-ethereum-use).
 
 I have a [repository](https://github.com/vkobel/ethereum-generate-wallet) with complete scripts in both bash and python if you'd like.
 
 ## Generating the EC private key
-First of all we use OpenSSL ecparam command to generate an elliptic curve private key. Ethereum standard is to use the secp256k1 curve. Bitcoin is using this curve as well.
+First of all we use OpenSSL ecparam command to generate an elliptic curve private key. Ethereum standard is to use the secp256k1 curve. The same curve is used by Bitcoin.
 
 This command will print the private key in PEM format (using the wonderful ASN.1 key structure) on stdout. If you want more OpenSSL info on elliptic curves, please feel free to [dig further](https://wiki.openssl.org/index.php/Command_Line_Elliptic_Curve_Operations).
 
@@ -35,7 +35,7 @@ JLnUV7w3orZUyAz77k0ebug0ILd1lQ==
 -----END EC PRIVATE KEY-----
 ```
 
-On its own this command is not what we want, but if you pipe it with the ec command it will display both private and public part in hexadecimal format, exactly what we want! Let's do it:
+On its own this command is not very useful for us, but if you pipe it with the ec command it will display both private and public part in hexadecimal format, and this is what we want! Let's do it:
 
 ```bash
 > openssl ecparam -name secp256k1 -genkey -noout | openssl ec -text -noout
@@ -62,7 +62,7 @@ The private key **must be 32 bytes and not begin with 0x00** and the public one 
 
 The public key is what we need in order to derive its Ethereum address. Every EC public key begins with the 0x04 prefix before giving the location of the two point on the curve. You should remove this leading 0x04 byte in order to hash it correctly. I recommend the excellent [Cloudflare article on elliptic curves](https://blog.cloudflare.com/a-relatively-easy-to-understand-primer-on-elliptic-curve-cryptography/) if you want more details.
 
-Use any method you like to get it in the form of an hexadecimal string (without line return nor semicolon). Here is an example of extraction using *grep*, *tail*, *tr* and *sed*. I'm sure there's an easier way to do but I'm not a bash guru. You can find the scripts (python as well) on [my github repository](https://github.com/vkobel/ethereum-generate-wallet).
+Use any method you like to get it in the form of an hexadecimal string (without line return nor semicolon). Here is an example of extraction using *grep*, *tail*, *tr* and *sed*. I'm sure there's an easier way to do it but I'm not a bash guru. You can find the scripts (python as well) on [my github repository](https://github.com/vkobel/ethereum-generate-wallet).
 
 **The examples below assume you saved the output of the openssl commands in a file named 'Key'**
 
@@ -107,9 +107,9 @@ Passphrase:
 Repeat passphrase: 
 Address: {0bed7abd61247635c1973eb38474a2516ed1d884}
 ```
-**YAY!** the address retured by geth is the same we computed. Note that geth will ask you a passphrase to encrypt your private key.
+**YAY!** the address returned by geth is the same we computed. Note that geth will ask you a passphrase to encrypt your private key.
 
-You're now ready to use the new account with geth. Of course, it would be easier to take advantage of the `geth account new` feature in order to quickly setup an Ethereum account. But using this way gives you the power of knowing your public and unencrypted private keys. In addition, this would be useful to generate a secure Ethereum account completely off chain. 
+You're now ready to use the new account with geth. Of course, it would be easier to take advantage of the `geth account new` feature in order to quickly setup an Ethereum account. But manually doing it gives you the power of knowing your public and unencrypted private keys. In addition, this would be useful to generate a secure Ethereum account completely off chain. 
 
 ## Complete example
 
