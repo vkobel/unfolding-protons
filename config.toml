@@ -3,6 +3,7 @@ baseurl = "https://kobl.one/"
 title = "Unfolding protons"
 theme = "cocoa"
 #pygmentsCodeFences = true
+disqusShortname = "unfolding-protons"
 
 [params]
 author = "Vincent Kō"
