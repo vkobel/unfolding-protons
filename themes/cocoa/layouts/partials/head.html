@@ -3,7 +3,7 @@
 <base href="{{ .Site.BaseURL }}">
 <title>
 {{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
-{{ if eq $url "/" }}
+{{ if or (eq $url "/") (eq $url "blog/") }}
     {{ .Site.Title }}
 {{ else }}
     {{ if .Params.heading }} {{ .Params.heading }} {{ else }} {{ .Title }} {{ end }}
@@ -11,9 +11,5 @@
 </title>
 <link rel="canonical" href="{{ .Permalink }}">
 {{ partial "head_includes.html" . }}
-
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
 
 </head>
