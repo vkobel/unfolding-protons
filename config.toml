@@ -1,9 +1,10 @@
 languageCode = "en-us"
-baseurl = "https://kobl.one/"
+baseurl = "/"
 title = "An Ethereum and blockchain blog"
 theme = "cocoa"
 disqusShortname = "unfolding-protons"
 googleAnalytics = "UA-92190076-1"
+#relativeURLs = true
 
 [params]
 author = "Vincent Kō"
