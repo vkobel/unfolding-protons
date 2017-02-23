@@ -1,5 +1,5 @@
 languageCode = "en-us"
-baseurl = "/"
+baseurl = "https://kobl.one"
 title = "An Ethereum and blockchain blog"
 theme = "cocoa"
 disqusShortname = "unfolding-protons"
