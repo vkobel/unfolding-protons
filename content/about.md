@@ -11,7 +11,12 @@ Hi to you! My name is Vincent Kobel, I'm a developer & security engineer current
 
 [Counterparty](http://counterparty.io/), implements the same functionality as Ethereum on top of the Bitcoin network.
 
-[IPFS](https://ipfs.io/), a peer-to-peer network created to form a distributed file system, based on content itself rather than a location, a hash instead of a URL.
+[IPFS](https://ipfs.io/), a peer-to-peer network created to form a distributed file system, based on content itself rather than a location, a hash instead of a URL. 
+
+Cool thing: this blog is accessible via IP**N**S, the persistant side of IP**F**S (think of it as a hostname for IPFS files) with the following hash: `/ipns/Qmdr8MhNeWE1sxABevBvxWNWC25iXEicfJRvYNpuCpca8E`. If you're just curious you can view it through the [ipfs.io browser](https://ipfs.io/ipns/Qmdr8MhNeWE1sxABevBvxWNWC25iXEicfJRvYNpuCpca8E). Note that I didn't bother to remove any CDN references (yet).
 
 If you were wondering about this blog's name **"Unfolding Protons"**, it's a reference to the awesome sci-fi novel [The Three-Body Problem](http://www.goodreads.com/book/show/20518872-the-three-body-problem) by Chinese author Liu Cixin.
+
+## Friend's blogs ♥
+- The mighty [Tome One](https://tome.one/)
 
