@@ -1,16 +1,15 @@
 languageCode = "en-us"
-baseurl = "https://kobl.one"
+baseurl = "/"
 title = "An Ethereum and blockchain blog"
 theme = "cocoa"
 disqusShortname = "unfolding-protons"
 googleAnalytics = "UA-92190076-1"
-#relativeURLs = true
 
 [params]
-author = "Vincent Kō"
-selfintro = "Unfolding Protons - A blog about Ethereum and blockchains"
+author = "Vincent Kobel"
+selfintro = "Unfolding Protons - A blog about Ethereum, blockchains and code chivalry"
 avatar = "img/profile.png"
-# linkedin = "//linkedin.com/in/vincentkobel"
+linkedin = "//linkedin.com/in/vincentkobel"
 github = "//github.com/vkobel"
 highlightjs = true
 email = "blog@kobl.one"

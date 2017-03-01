@@ -8,10 +8,10 @@ draft = false
 # Generating a usable Ethereum wallet and its corresponding keys
 
 ### Contents
-- [Generating the EC private key](blog/create-full-ethereum-keypair-and-address#generating-the-ec-private-key)
-- [Derive the Ethereum address from the public key](blog/create-full-ethereum-keypair-and-address#derive-the-ethereum-address-from-the-public-key)
-- [Importing the private key to geth](blog/create-full-ethereum-keypair-and-address#importing-the-private-key-to-geth)
-- [Complete example](blog/create-full-ethereum-keypair-and-address#complete-example)
+- [Generating the EC private key](#generating-the-ec-private-key)
+- [Derive the Ethereum address from the public key](#derive-the-ethereum-address-from-the-public-key)
+- [Importing the private key to geth](#importing-the-private-key-to-geth)
+- [Complete example](#complete-example)
 
 This article is a guide on how to generate an ECDSA private key and derive its Ethereum address. Using OpenSSL and keccak-256sum from a  terminal.
 
