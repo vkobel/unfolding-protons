@@ -4,7 +4,6 @@ title = "An Ethereum and blockchain blog"
 theme = "cocoa"
 disqusShortname = "unfolding-protons"
 googleAnalytics = "UA-92190076-1"
-relativeUrls = true
 
 [params]
 author = "Vincent Kobel"
