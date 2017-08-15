@@ -15,7 +15,7 @@ draft = false
 
 This article is a guide on how to generate an ECDSA private key and derive its Ethereum address. Using OpenSSL and keccak-256sum from a  terminal.
 
-You can find a working implementation of keccak-256sum [here](https://github.com/maandree/sha3sum). Cool thing, it exists as a package in the [Arch User Repository as well](https://aur.archlinux.org/packages/sha3sum/).
+You can find a working implementation of keccak-256sum [here](https://github.com/maandree/sha3sum). Cool thing, it exists as a package in the [Arch User Repository as well](https://aur.archlinux.org/packages/sha3sum/). If you're feeling lazy, you can find statically linked pre-compiled versions for [both i386 and x86-64 on my repo](https://github.com/vkobel/ethereum-generate-wallet/tree/master/lib).
 
 **Warning SHA3 != keccak**. Ethereum is using the keccak-256 algorithm and not the standard sha3. More info at [Stackoverflow](http://ethereum.stackexchange.com/questions/550/which-cryptographic-hash-function-does-ethereum-use).
 
