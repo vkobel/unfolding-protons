@@ -87,6 +87,10 @@ In the below snippet, the '-l' option is to output as lowercase. Then I use *tr*
 ```
 Which gives us the Ethereum address `0x0bed7abd61247635c1973eb38474a2516ed1d884`
 
+**CAUTION!** if your final address looks like `*0xdcc703c0E500B653Ca82273B7BFAd8045D85a470*` this means you have hashed an empty public key. Sending funds to this address will lock them forever! People made this mistake before as shown on [etherscan](https://etherscan.io/address/0xdcc703c0E500B653Ca82273B7BFAd8045D85a470).
+
+*Thanks to Linus Miller for highlighting this issue in the comments section below.*
+
 ## Importing the private key to geth
 
 Let's import the private key to geth and therefore validating the derivation of the address.
